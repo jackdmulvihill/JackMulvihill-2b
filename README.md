@@ -1,3 +1,5 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=20970690)
 
-Added missing test cases in shapes, implemented boundingBox, and added size, height, and scale behaviors with testing suites for each. Also adding logging suite.
+F-algebra based refactoring of Project 2A (see https://github.com/lucproglangclassroom/project-2a-geometric-shapes-jackdmulvihill). 
+- Reflection located in src/main/resources/reflection.txt
+- More to come...
