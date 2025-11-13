@@ -1,0 +1,31 @@
+Jack Mulvihill
+Dr. Konstantin Läufer
+COMP 371 Section 001
+14 November 2025
+
+    The F-algebra approach used in this project improves modifiability as adding new behaviors
+only requires defining a new algebraic formula without having to modify the existing code. Reusability
+improves because the algebras are pure, composable functions that can be combined using categorical
+operators. Maintainability works with modifiability and reusability as the code for the F-algebra 
+approach is a lot more concise. Integrability also improves because of the separation of structure 
+from recursion, allowing independent development of each concern.
+    Ease of creation favors the original functional approach in Project 2A as the abstract algebraic 
+data types might not be as intuitive, especially for the less mathematically inclined. Portability
+is also reduced as the F-algebra based approach depends on specialized libraries such as Cats and 
+Droste to function that might not be available in other languages whereas the original functional
+approach uses only standard language features that can be replicated anywhere. 
+
+    Using foldRight would traverse the tree in a specific order accumulating results sequentially.
+This would work for size and depth as shapes could be counted one at a time regardless of order.
+However, foldRight would not work for boundingBox because boundingBox requires processing the child
+nodes before parent nodes. The foldRight function processes shapes in traversal order, not dependency
+order.
+    Using cata solves this by guaranteeing bottom-up evaluation as child nodes are always processed
+before the parent nodes. The foldRight function is better for applications where order matters but
+structure does not.
+
+    Something I found interesting is how much more concise the code is in this approach than in Project 2A. 
+I never would have considered implementing the behavior for a graphics library using algebraic expressions 
+but after some reflection it makes a lot of sense because at the end of the day shapes are represented 
+by a bunch of points plotted on a coordinate grid. Use of this approach ultimately depends on the needs of 
+the developers, whether they need to prioritize ease of upkeep or ease of application and understanding.

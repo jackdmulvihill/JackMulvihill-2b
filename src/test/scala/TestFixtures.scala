@@ -1,41 +1,41 @@
-// Jack Mulvihill
-
 package edu.luc.cs.laufer.cs371.shapes
 
-// Imports all case constructors from the shape enum into current scope
-import Shape.*
+import structures.*
+import structures.shape.*
 
+/**
+  * Test fixtures isomorphic to those in the original project.
+  * Sample shape trees created using factory functions.
+  */
 object TestFixtures:
 
-  // Commented tests back in
+  val simpleEllipse = ellipse(50, 30)
 
-  val simpleEllipse = Ellipse(50, 30)
+  val simpleRectangle = rectangle(80, 120)
 
-  val simpleRectangle = Rectangle(80, 120)
+  val simpleLocation = location(70, 30, rectangle(80, 120))
 
-  val simpleLocation = Location(70, 30, Rectangle(80, 120))
-
-  val basicGroup = Group(Ellipse(50, 30), Rectangle(20, 40))
+  val basicGroup = group(ellipse(50, 30), rectangle(20, 40))
   
-  val simpleGroup = Group(
-    Location(200, 100, Ellipse(50, 30)),
-    Location(400, 300, Rectangle(100, 50))
-    )
+  val simpleGroup = group(
+    location(200, 100, ellipse(50, 30)),
+    location(400, 300, rectangle(100, 50))
+  )
 
   val complexGroup =
-    Location(50, 100,
-      Group(
-        Ellipse(20, 40),
-        Location(150, 50,
-        Group(
-          Rectangle(50, 30),
-          Rectangle(300, 60),
-          Location(100, 200,
-          Ellipse(50, 30)
+    location(50, 100,
+      group(
+        ellipse(20, 40),
+        location(150, 50,
+          group(
+            rectangle(50, 30),
+            rectangle(300, 60),
+            location(100, 200,
+              ellipse(50, 30)
+            )
           )
-        )
         ),
-        Rectangle(100, 200)
+        rectangle(100, 200)
       )
     )
 
