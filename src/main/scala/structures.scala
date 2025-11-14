@@ -38,6 +38,10 @@ object structures:
       case Group(shapes) => Group(shapes.map(f))
   end shapeFFunctor
 
+  /**
+    * Traverse instance for ShapeF (declared as given).
+    * This allows us to traverse the recursive positions.
+    */
   given shapeFTraverse: Traverse[ShapeF] = new Traverse[ShapeF]:
     override def traverse[G[_]: Applicative, A, B](fa: ShapeF[A])(f: A => G[B]): G[ShapeF[B]] =
       import cats.syntax.all.*
@@ -51,6 +55,7 @@ object structures:
         case Group(shapes) =>
           shapes.toList.traverse(f).map(bs => Group(bs.toSeq))
 
+    // Implement foldLeft and foldRight using DefaultTraverse
     override def foldLeft[A, B](fa: ShapeF[A], b: B)(f: (B, A) => B): B =
       fa match
         case Rectangle(_, _) => b
